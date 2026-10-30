@@ -1,0 +1,303 @@
+/* Variáveis de Cores (Tudo na família do Vinho) */
+:root {
+    --cor-vinho-fonte: #5c1525;
+    --cor-vinho-fundo: #7a1f33;
+    --cor-vinho-hover: #8d2f45;
+    --cor-texto-principal: #111;
+    --cor-texto-secundario: #666;
+    --cor-borda: #eaeaea;
+    
+    --texto-claro: #fdfafb;
+    --texto-detalhe: #e8c3cb;
+}
+
+/* Reset básico */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    color: var(--cor-texto-principal);
+}
+
+/* =========================================
+   MENU FIXO
+   ========================================= */
+header {
+    position: sticky; top: 0; z-index: 1000;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 50px;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+nav { display: flex; gap: 10px; }
+
+nav a {
+    text-decoration: none; color: var(--cor-texto-principal); font-size: 0.85rem;
+    letter-spacing: 1px; font-weight: 500; text-transform: uppercase;
+    padding: 8px 16px; border-radius: 20px; transition: all 0.3s ease;
+}
+
+nav a:hover { background-color: #f5ebeb; color: var(--cor-vinho-fonte); }
+nav a.ativo { background-color: var(--cor-vinho-fonte); color: #ffffff; }
+
+.menu-btn { background: none; border: none; cursor: pointer; display: flex; flex-direction: column; gap: 6px; }
+.menu-btn span { display: block; width: 32px; height: 1px; background-color: var(--cor-texto-principal); }
+
+/* =========================================
+   ESTRUTURA GERAL
+   ========================================= */
+.site-wrapper {
+    width: 100%; max-width: 1600px; margin: 0 auto;
+    padding: 40px 50px;
+    display: flex; flex-direction: column;
+}
+
+/* =========================================
+   NOVA PÁGINA INICIAL (HOME)
+   ========================================= */
+.hero-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 60px;
+    min-height: 70vh;
+}
+
+.hero-texto h1.nome-cursivo {
+    font-family: 'Alex Brush', cursive;
+    color: var(--cor-vinho-fonte);
+    font-size: clamp(5rem, 12vw, 9rem);
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.hero-texto .subtitulo {
+    font-size: 1rem; font-weight: 500; letter-spacing: 3px; text-transform: uppercase;
+    margin-bottom: 15px; color: var(--cor-texto-principal);
+}
+
+.hero-texto p {
+    font-size: 1.1rem; color: var(--cor-texto-secundario); margin-bottom: 30px;
+}
+
+.botao-outline {
+    display: inline-flex; align-items: center;
+    padding: 12px 24px; border: 1px solid var(--cor-vinho-fonte); border-radius: 30px;
+    text-decoration: none; color: var(--cor-vinho-fonte);
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.botao-outline:hover { background-color: var(--cor-vinho-fonte); color: #fff; }
+
+/* Collage de Imagens */
+.hero-collage {
+    position: relative;
+    height: 550px;
+    background-color: var(--cor-vinho-fundo);
+    border-radius: 24px;
+    box-shadow: 0 15px 40px rgba(92, 21, 37, 0.2);
+}
+
+.collage-texto {
+    position: absolute; top: 30px; left: 30px;
+    font-family: 'Alex Brush', cursive; color: var(--texto-detalhe);
+    font-size: 2.2rem; line-height: 1; transform: rotate(-10deg); z-index: 2;
+}
+
+.collage-foto-principal {
+    position: absolute; top: 50%; left: 35%;
+    transform: translate(-50%, -50%);
+    width: 250px; height: 350px;
+    border-radius: 16px; overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 3;
+    border: 2px solid rgba(255,255,255,0.1);
+}
+.collage-foto-principal img { width: 100%; height: 100%; object-fit: cover; }
+
+.collage-foto-gato {
+    position: absolute; top: 40px; right: 30px;
+    width: 130px; height: 160px;
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 2;
+    transform: rotate(5deg);
+    border: 2px solid rgba(255,255,255,0.1);
+}
+.collage-foto-gato img { width: 100%; height: 100%; object-fit: cover; }
+
+.collage-foto-borboleta {
+    position: absolute; bottom: 40px; right: 30px;
+    width: 200px; height: 260px;
+    border-radius: 16px; overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4); z-index: 4;
+    border: 2px solid rgba(255,255,255,0.1);
+}
+.collage-foto-borboleta img { width: 100%; height: 100%; object-fit: cover; }
+
+.collage-selo {
+    position: absolute; bottom: 20px; left: 20px;
+    width: 70px; height: 70px; border-radius: 50%;
+    border: 1px dashed var(--texto-detalhe);
+    display: flex; align-items: center; justify-content: center;
+    background-color: var(--cor-vinho-fundo); z-index: 5;
+}
+.collage-selo .estrela { font-size: 1.8rem; color: var(--texto-detalhe); }
+
+/* --- SEÇÃO PROJETOS EM DESTAQUE --- */
+.projetos-destaque {
+    background-color: var(--cor-vinho-fundo);
+    border-radius: 24px;
+    padding: 40px;
+}
+
+.destaque-header {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;
+}
+
+.destaque-header h2 {
+    font-size: 1rem; font-weight: 500; letter-spacing: 2px; color: var(--texto-claro);
+}
+
+.setas-nav { display: flex; gap: 10px; }
+.seta-btn {
+    width: 40px; height: 40px; border-radius: 50%;
+    border: 1px solid var(--cor-vinho-hover); background: transparent;
+    cursor: pointer; color: var(--texto-claro); font-size: 1.2rem;
+    transition: all 0.3s;
+}
+.seta-btn:hover { background: var(--cor-vinho-hover); border-color: var(--cor-vinho-hover); }
+
+.destaque-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+
+.card-destaque {
+    text-decoration: none; color: inherit; display: flex; flex-direction: column;
+    transition: transform 0.3s ease;
+}
+.card-destaque:hover { transform: translateY(-5px); }
+
+.card-img {
+    width: 100%; aspect-ratio: 4/3; border-radius: 12px; overflow: hidden;
+    margin-bottom: 15px; background-color: var(--cor-vinho-hover);
+}
+.card-img img { width: 100%; height: 100%; object-fit: cover; }
+
+.card-info {
+    display: flex; justify-content: space-between; align-items: flex-end;
+}
+.card-info h3 { 
+    font-family: 'Inter', sans-serif; 
+    font-size: 1.1rem; 
+    font-weight: 400; /* Mais fino aqui também */
+    margin-bottom: 5px; 
+    color: var(--texto-claro); 
+}
+.card-info span { font-size: 0.75rem; letter-spacing: 1px; color: var(--texto-detalhe); text-transform: uppercase;}
+.card-seta { font-size: 1.2rem; color: var(--texto-claro); }
+
+/* =========================================
+   TÍTULOS GIGANTES (SOBRE E PORTFÓLIO)
+   ========================================= */
+.hero-title { margin-bottom: 40px; }
+
+.hero-title h1 { 
+    font-family: 'Inter', sans-serif; 
+    font-weight: 400; /* Removido o negrito (era 600) */
+    font-size: clamp(3rem, 8vw, 7rem); /* Diminuído um pouco o tamanho */
+    letter-spacing: -2px; 
+    line-height: 1; 
+    color: var(--cor-texto-principal); 
+    white-space: nowrap; 
+    user-select: none; 
+    cursor: default; 
+}
+
+.hero-title.border-bottom { 
+    border-bottom: 1px solid var(--cor-borda); 
+    padding-bottom: 20px; 
+    margin-bottom: 50px; 
+}
+
+/* =========================================
+   ESTILOS DA PÁGINA SOBRE
+   ========================================= */
+.curriculo-grid { display: grid; grid-template-columns: 1fr 2.5fr; gap: 50px; flex: 1; margin-top: 20px;}
+.coluna-esquerda { display: flex; flex-direction: column; gap: 30px; }
+.foto-perfil { width: 100%; aspect-ratio: 3/4; border-radius: 16px; overflow: hidden; background-color: #f5ebeb; }
+.foto-perfil img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.bloco-info h3, .bloco-texto h3 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--cor-vinho-fonte); margin-bottom: 15px; border-bottom: 1px solid var(--cor-borda); padding-bottom: 5px; }
+.bloco-info ul { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem; }
+.bloco-info ul a { color: var(--cor-texto-principal); text-decoration: none; transition: color 0.2s; }
+.bloco-info ul a:hover { color: var(--cor-vinho-fonte); }
+.tags { flex-direction: row !important; flex-wrap: wrap; gap: 8px !important; }
+.tags li { background-color: #f5ebeb; color: var(--cor-vinho-fonte); padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;}
+.coluna-direita { display: flex; flex-direction: column; gap: 40px; }
+.bloco-texto p { font-size: 1.1rem; line-height: 1.6; color: var(--cor-texto-secundario); margin-bottom: 15px; text-align: justify; }
+.item-experiencia, .item-educacao { margin-bottom: 20px; }
+.item-experiencia h4, .item-educacao h4 { font-size: 1.1rem; font-weight: 500; margin-bottom: 5px; color: var(--cor-texto-principal); }
+.periodo { font-size: 0.9rem; color: var(--cor-vinho-fonte); font-weight: 500; display: block; margin-bottom: 10px; }
+.lista-certificados { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.lista-certificados li { font-size: 0.95rem; color: var(--cor-texto-secundario); padding-left: 15px; position: relative; }
+.lista-certificados li::before { content: "•"; color: var(--cor-vinho-fonte); position: absolute; left: 0; font-weight: bold; }
+
+/* =========================================
+   ESTILOS DO PORTFÓLIO
+   ========================================= */
+.categoria-projeto { margin-bottom: 60px; }
+
+.titulo-categoria { 
+    font-family: 'Inter', sans-serif; 
+    font-size: 1.5rem; /* Diminuído */
+    font-weight: 400; /* Removido o negrito (era 600) */
+    color: var(--cor-vinho-fonte); 
+    margin-bottom: 25px; 
+    border-bottom: 1px solid var(--cor-borda); 
+    padding-bottom: 10px; 
+}
+
+.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; align-items: start; }
+.projeto-card { border-radius: 12px; overflow: hidden; background-color: #f5ebeb; display: flex; cursor: zoom-in; }
+.projeto-card img { width: 100%; height: auto; display: block; object-fit: cover; transition: transform 0.5s ease; }
+.projeto-card:hover img { transform: scale(1.03); }
+
+/* Lightbox */
+.lightbox { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); justify-content: center; align-items: center; cursor: zoom-out; }
+.lightbox.ativo { display: flex; }
+.lightbox-img { max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 8px; box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); animation: zoomIn 0.3s ease; }
+.fechar-lightbox { position: absolute; top: 20px; right: 40px; color: #fff; font-size: 40px; font-weight: 300; cursor: pointer; transition: color 0.3s; }
+.fechar-lightbox:hover { color: var(--cor-vinho-fonte); }
+@keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* =========================================
+   RESPONSIVIDADE
+   ========================================= */
+@media (max-width: 1024px) {
+    .hero-section { grid-template-columns: 1fr; min-height: auto; }
+    .hero-collage { height: 500px; max-width: 600px; margin: 0 auto; width: 100%; }
+    .destaque-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+    header { padding: 15px 20px; }
+    nav a { padding: 8px 10px; font-size: 0.75rem; }
+    .site-wrapper { padding: 20px; }
+    .curriculo-grid { grid-template-columns: 1fr; }
+    .foto-perfil { max-width: 300px; margin: 0 auto; }
+    .lista-certificados { grid-template-columns: 1fr; }
+    .portfolio-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+    
+    .destaque-grid { grid-template-columns: 1fr; }
+    .hero-collage { height: 500px; }
+    
+    .collage-foto-principal { width: 180px; height: 250px; left: 40%; }
+    .collage-foto-gato { width: 100px; height: 130px; right: 20px; top: 30px; }
+    .collage-foto-borboleta { width: 160px; height: 220px; right: 20px; bottom: 30px; }
+    .collage-texto { font-size: 1.5rem; left: 10px; top: 10px; }
+    
+    .hero-title h1 { font-size: 3rem; white-space: nowrap; }
+}
