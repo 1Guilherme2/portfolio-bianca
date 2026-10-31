@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
 
-    // Só executa se estiver na página inicial (onde existem slides)
     if (slides.length > 0 && dots.length > 0) {
         let indexAtual = 0;
         let intervaloTroca;
@@ -52,33 +51,79 @@ document.addEventListener("DOMContentLoaded", () => {
     const imgLightbox = document.getElementById('img-lightbox');
     const fecharLightbox = document.querySelector('.fechar-lightbox');
 
-    // Se estiver na página de portfólio, ativa os cliques
     if (lightbox) {
-        // Abrir a imagem ao clicar nela
         imagensPortfolio.forEach(imagem => {
             imagem.addEventListener('click', () => {
                 lightbox.classList.add('ativo');
-                imgLightbox.src = imagem.src; // Pega a mesma imagem clicada
+                imgLightbox.src = imagem.src;
             });
         });
 
-        // Fechar no "X"
-        fecharLightbox.addEventListener('click', () => {
-            lightbox.classList.remove('ativo');
-        });
+        if (fecharLightbox) {
+            fecharLightbox.addEventListener('click', () => {
+                lightbox.classList.remove('ativo');
+            });
+        }
 
-        // Fechar ao clicar fora da imagem (no fundo preto)
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) {
                 lightbox.classList.remove('ativo');
             }
         });
 
-        // Fechar apertando a tecla "Esc" do teclado
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && lightbox.classList.contains('ativo')) {
                 lightbox.classList.remove('ativo');
             }
+        });
+    }
+
+    /* ==========================================
+       3. LÓGICA DE FILTROS DO PORTFÓLIO
+       ========================================== */
+    const botoesFiltro = document.querySelectorAll('.filtro-btn');
+    const categoriasProjetos = document.querySelectorAll('.categoria-projeto');
+
+    if (botoesFiltro.length > 0 && categoriasProjetos.length > 0) {
+        botoesFiltro.forEach(botao => {
+            botao.addEventListener('click', () => {
+                botoesFiltro.forEach(btn => btn.classList.remove('ativo'));
+                botao.classList.add('ativo');
+
+                const filtro = botao.getAttribute('data-filtro');
+
+                categoriasProjetos.forEach(categoria => {
+                    const categoriaProjeto = categoria.getAttribute('data-categoria');
+
+                    if (filtro === 'todos' || categoriaProjeto === filtro) {
+                        categoria.classList.remove('oculto');
+                    } else {
+                        categoria.classList.add('oculto');
+                    }
+                });
+            });
+        });
+    }
+
+    /* ==========================================
+       4. LÓGICA DO BOTÃO VOLTAR AO TOPO
+       ========================================== */
+    const btnVoltarAoTopo = document.getElementById('btn-voltar-ao-topo');
+
+    if (btnVoltarAoTopo) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                btnVoltarAoTopo.classList.add('visivel');
+            } else {
+                btnVoltarAoTopo.classList.remove('visivel');
+            }
+        });
+
+        btnVoltarAoTopo.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     }
 });

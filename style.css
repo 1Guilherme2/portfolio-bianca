@@ -1,23 +1,20 @@
-/* Variáveis de Cores (Tudo na família do Vinho) */
+/* Variáveis de Cores (Nova Identidade Visual) */
 :root {
-    --cor-vinho-fonte: #5c1525;
-    --cor-vinho-fundo: #7a1f33;
-    --cor-vinho-hover: #8d2f45;
-    --cor-texto-principal: #111;
-    --cor-texto-secundario: #666;
-    --cor-borda: #eaeaea;
-    
-    --texto-claro: #fdfafb;
-    --texto-detalhe: #e8c3cb;
+    --cor-fundo: #efe9da;        /* O creme/areia (base do site) */
+    --cor-vinho: #6d1637;        /* O vinho profundo (textos e destaques) */
+    --cor-vinho-hover: #8a2047;  /* Um tom levemente mais claro para interações */
+    --cor-texto-escuro: #2b2b2b; /* Para textos de leitura longa (se necessário) */
+    --cor-texto-claro: #efe9da;  /* Para textos em cima do vinho */
+    --cor-borda: rgba(109, 22, 55, 0.2); /* Borda sutil em tom de vinho */
 }
 
 /* Reset básico */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    background-color: #ffffff;
+    background-color: var(--cor-fundo); /* O site inteiro com o fundo creme */
     font-family: 'Inter', sans-serif;
-    color: var(--cor-texto-principal);
+    color: var(--cor-vinho); /* Textos padrão em vinho */
 }
 
 /* =========================================
@@ -27,7 +24,7 @@ header {
     position: sticky; top: 0; z-index: 1000;
     display: flex; justify-content: space-between; align-items: center;
     padding: 15px 50px;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(239, 233, 218, 0.95); /* Creme com transparência */
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--cor-borda);
 }
@@ -35,16 +32,22 @@ header {
 nav { display: flex; gap: 10px; }
 
 nav a {
-    text-decoration: none; color: var(--cor-texto-principal); font-size: 0.85rem;
-    letter-spacing: 1px; font-weight: 500; text-transform: uppercase;
-    padding: 8px 16px; border-radius: 20px; transition: all 0.3s ease;
+    text-decoration: none; 
+    color: var(--cor-vinho); 
+    font-size: 0.85rem;
+    letter-spacing: 1px; 
+    font-weight: 500; 
+    text-transform: uppercase;
+    padding: 8px 16px; 
+    border-radius: 20px; 
+    transition: all 0.3s ease;
 }
 
-nav a:hover { background-color: #f5ebeb; color: var(--cor-vinho-fonte); }
-nav a.ativo { background-color: var(--cor-vinho-fonte); color: #ffffff; }
+nav a:hover { background-color: rgba(109, 22, 55, 0.1); color: var(--cor-vinho); }
+nav a.ativo { background-color: var(--cor-vinho); color: var(--cor-fundo); }
 
 .menu-btn { background: none; border: none; cursor: pointer; display: flex; flex-direction: column; gap: 6px; }
-.menu-btn span { display: block; width: 32px; height: 1px; background-color: var(--cor-texto-principal); }
+.menu-btn span { display: block; width: 32px; height: 1px; background-color: var(--cor-vinho); }
 
 /* =========================================
    ESTRUTURA GERAL
@@ -56,130 +59,124 @@ nav a.ativo { background-color: var(--cor-vinho-fonte); color: #ffffff; }
 }
 
 /* =========================================
-   NOVA PÁGINA INICIAL (HOME)
+   PÁGINA INICIAL (HOME)
    ========================================= */
 .hero-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-    margin-bottom: 60px;
-    min-height: 70vh;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+    align-items: center; margin-bottom: 60px; min-height: 70vh;
 }
 
 .hero-texto h1.nome-cursivo {
     font-family: 'Alex Brush', cursive;
-    color: var(--cor-vinho-fonte);
+    color: var(--cor-vinho);
     font-size: clamp(5rem, 12vw, 9rem);
-    line-height: 1;
-    margin-bottom: 20px;
+    line-height: 1; margin-bottom: 20px;
 }
 
 .hero-texto .subtitulo {
     font-size: 1rem; font-weight: 500; letter-spacing: 3px; text-transform: uppercase;
-    margin-bottom: 15px; color: var(--cor-texto-principal);
+    margin-bottom: 15px; color: var(--cor-vinho);
 }
 
 .hero-texto p {
-    font-size: 1.1rem; color: var(--cor-texto-secundario); margin-bottom: 30px;
+    font-size: 1.1rem; color: var(--cor-vinho); opacity: 0.8; margin-bottom: 30px;
 }
 
 .botao-outline {
     display: inline-flex; align-items: center;
-    padding: 12px 24px; border: 1px solid var(--cor-vinho-fonte); border-radius: 30px;
-    text-decoration: none; color: var(--cor-vinho-fonte);
+    padding: 12px 24px; border: 1px solid var(--cor-vinho); border-radius: 30px;
+    text-decoration: none; color: var(--cor-vinho);
     font-size: 0.85rem; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
     transition: all 0.3s ease;
 }
 
-.botao-outline:hover { background-color: var(--cor-vinho-fonte); color: #fff; }
+.botao-outline:hover { background-color: var(--cor-vinho); color: var(--cor-fundo); }
 
 /* Collage de Imagens */
 .hero-collage {
-    position: relative;
-    height: 550px;
-    background-color: var(--cor-vinho-fundo);
+    position: relative; height: 550px;
+    background-color: var(--cor-vinho); /* Bloco de fundo vinho */
     border-radius: 24px;
-    box-shadow: 0 15px 40px rgba(92, 21, 37, 0.2);
+    box-shadow: 0 15px 40px rgba(109, 22, 55, 0.15);
 }
 
 .collage-texto {
     position: absolute; top: 30px; left: 30px;
-    font-family: 'Alex Brush', cursive; color: var(--texto-detalhe);
+    font-family: 'Alex Brush', cursive; color: var(--cor-fundo);
     font-size: 2.2rem; line-height: 1; transform: rotate(-10deg); z-index: 2;
 }
 
 .collage-foto-principal {
-    position: absolute; top: 50%; left: 35%;
-    transform: translate(-50%, -50%);
-    width: 250px; height: 350px;
-    border-radius: 16px; overflow: hidden;
+    position: absolute; top: 50%; left: 35%; transform: translate(-50%, -50%);
+    width: 250px; height: 350px; border-radius: 16px; overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 3;
-    border: 2px solid rgba(255,255,255,0.1);
+    border: 2px solid rgba(239, 233, 218, 0.2);
 }
 .collage-foto-principal img { width: 100%; height: 100%; object-fit: cover; }
 
 .collage-foto-gato {
     position: absolute; top: 40px; right: 30px;
-    width: 130px; height: 160px;
-    border-radius: 12px; overflow: hidden;
+    width: 130px; height: 160px; border-radius: 12px; overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 2;
-    transform: rotate(5deg);
-    border: 2px solid rgba(255,255,255,0.1);
+    transform: rotate(5deg); border: 2px solid rgba(239, 233, 218, 0.2);
 }
 .collage-foto-gato img { width: 100%; height: 100%; object-fit: cover; }
 
 .collage-foto-borboleta {
     position: absolute; bottom: 40px; right: 30px;
-    width: 200px; height: 260px;
-    border-radius: 16px; overflow: hidden;
+    width: 200px; height: 260px; border-radius: 16px; overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.4); z-index: 4;
-    border: 2px solid rgba(255,255,255,0.1);
+    border: 2px solid rgba(239, 233, 218, 0.2);
 }
 .collage-foto-borboleta img { width: 100%; height: 100%; object-fit: cover; }
 
 .collage-selo {
     position: absolute; bottom: 20px; left: 20px;
     width: 70px; height: 70px; border-radius: 50%;
-    border: 1px dashed var(--texto-detalhe);
+    border: 1px dashed var(--cor-fundo);
     display: flex; align-items: center; justify-content: center;
-    background-color: var(--cor-vinho-fundo); z-index: 5;
+    background-color: var(--cor-vinho); z-index: 5;
 }
-.collage-selo .estrela { font-size: 1.8rem; color: var(--texto-detalhe); }
+.collage-selo .estrela { font-size: 1.8rem; color: var(--cor-fundo); }
 
 /* --- SEÇÃO PROJETOS EM DESTAQUE --- */
 .projetos-destaque {
-    background-color: var(--cor-vinho-fundo);
-    border-radius: 24px;
-    padding: 40px;
+    background-color: var(--cor-vinho);
+    border-radius: 24px; padding: 40px;
 }
 
-.destaque-header {
-    display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;
-}
-
-.destaque-header h2 {
-    font-size: 1rem; font-weight: 500; letter-spacing: 2px; color: var(--texto-claro);
-}
+.destaque-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+.destaque-header h2 { font-size: 1rem; font-weight: 500; letter-spacing: 2px; color: var(--cor-fundo); }
 
 .setas-nav { display: flex; gap: 10px; }
 .seta-btn {
     width: 40px; height: 40px; border-radius: 50%;
-    border: 1px solid var(--cor-vinho-hover); background: transparent;
-    cursor: pointer; color: var(--texto-claro); font-size: 1.2rem;
-    transition: all 0.3s;
+    border: 1px solid rgba(239, 233, 218, 0.4); background: transparent;
+    cursor: pointer; color: var(--cor-fundo); font-size: 1.2rem; transition: all 0.3s;
 }
 .seta-btn:hover { background: var(--cor-vinho-hover); border-color: var(--cor-vinho-hover); }
 
-.destaque-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+.destaque-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+/* Efeito de hover atualizado para os cards de destaque */
+.card-destaque {
+    text-decoration: none; 
+    color: inherit; 
+    display: flex; 
+    flex-direction: column;
+    padding: 12px;
+    border-radius: 16px;
+    border: 1px solid rgba(239, 233, 218, 0.15);
+    background-color: transparent;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
 }
 
-.card-destaque {
-    text-decoration: none; color: inherit; display: flex; flex-direction: column;
-    transition: transform 0.3s ease;
+.card-destaque:hover { 
+    transform: translateY(-6px); 
+    border-color: rgba(239, 233, 218, 0.4);
+    background-color: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 10px 30px rgba(109, 22, 55, 0.4); 
 }
-.card-destaque:hover { transform: translateY(-5px); }
 
 .card-img {
     width: 100%; aspect-ratio: 4/3; border-radius: 12px; overflow: hidden;
@@ -187,18 +184,10 @@ nav a.ativo { background-color: var(--cor-vinho-fonte); color: #ffffff; }
 }
 .card-img img { width: 100%; height: 100%; object-fit: cover; }
 
-.card-info {
-    display: flex; justify-content: space-between; align-items: flex-end;
-}
-.card-info h3 { 
-    font-family: 'Inter', sans-serif; 
-    font-size: 1.1rem; 
-    font-weight: 400; /* Mais fino aqui também */
-    margin-bottom: 5px; 
-    color: var(--texto-claro); 
-}
-.card-info span { font-size: 0.75rem; letter-spacing: 1px; color: var(--texto-detalhe); text-transform: uppercase;}
-.card-seta { font-size: 1.2rem; color: var(--texto-claro); }
+.card-info { display: flex; justify-content: space-between; align-items: flex-end; }
+.card-info h3 { font-family: 'Inter', sans-serif; font-size: 1.1rem; font-weight: 400; margin-bottom: 5px; color: var(--cor-fundo); }
+.card-info span { font-size: 0.75rem; letter-spacing: 1px; color: var(--cor-fundo); opacity: 0.7; text-transform: uppercase;}
+.card-seta { font-size: 1.2rem; color: var(--cor-fundo); }
 
 /* =========================================
    TÍTULOS GIGANTES (SOBRE E PORTFÓLIO)
@@ -207,71 +196,181 @@ nav a.ativo { background-color: var(--cor-vinho-fonte); color: #ffffff; }
 
 .hero-title h1 { 
     font-family: 'Inter', sans-serif; 
-    font-weight: 400; /* Removido o negrito (era 600) */
-    font-size: clamp(3rem, 8vw, 7rem); /* Diminuído um pouco o tamanho */
+    font-weight: 400; 
+    font-size: clamp(3rem, 8vw, 7rem); 
     letter-spacing: -2px; 
     line-height: 1; 
-    color: var(--cor-texto-principal); 
+    color: var(--cor-vinho);
     white-space: nowrap; 
     user-select: none; 
     cursor: default; 
 }
 
-.hero-title.border-bottom { 
-    border-bottom: 1px solid var(--cor-borda); 
-    padding-bottom: 20px; 
-    margin-bottom: 50px; 
-}
+.hero-title.border-bottom { border-bottom: 1px solid var(--cor-borda); padding-bottom: 20px; margin-bottom: 50px; }
 
 /* =========================================
-   ESTILOS DA PÁGINA SOBRE
+   PÁGINA SOBRE
    ========================================= */
 .curriculo-grid { display: grid; grid-template-columns: 1fr 2.5fr; gap: 50px; flex: 1; margin-top: 20px;}
 .coluna-esquerda { display: flex; flex-direction: column; gap: 30px; }
-.foto-perfil { width: 100%; aspect-ratio: 3/4; border-radius: 16px; overflow: hidden; background-color: #f5ebeb; }
+.foto-perfil { width: 100%; aspect-ratio: 3/4; border-radius: 16px; overflow: hidden; background-color: rgba(109, 22, 55, 0.1); }
 .foto-perfil img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-.bloco-info h3, .bloco-texto h3 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--cor-vinho-fonte); margin-bottom: 15px; border-bottom: 1px solid var(--cor-borda); padding-bottom: 5px; }
+.bloco-info h3, .bloco-texto h3 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--cor-vinho); margin-bottom: 15px; border-bottom: 1px solid var(--cor-borda); padding-bottom: 5px; }
 .bloco-info ul { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem; }
-.bloco-info ul a { color: var(--cor-texto-principal); text-decoration: none; transition: color 0.2s; }
-.bloco-info ul a:hover { color: var(--cor-vinho-fonte); }
+.bloco-info ul a { color: var(--cor-vinho); text-decoration: none; transition: opacity 0.2s; }
+.bloco-info ul a:hover { opacity: 0.7; }
+
 .tags { flex-direction: row !important; flex-wrap: wrap; gap: 8px !important; }
-.tags li { background-color: #f5ebeb; color: var(--cor-vinho-fonte); padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;}
+.tags li { background-color: rgba(109, 22, 55, 0.1); color: var(--cor-vinho); padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;}
+
 .coluna-direita { display: flex; flex-direction: column; gap: 40px; }
-.bloco-texto p { font-size: 1.1rem; line-height: 1.6; color: var(--cor-texto-secundario); margin-bottom: 15px; text-align: justify; }
+.bloco-texto p { font-size: 1.1rem; line-height: 1.6; color: var(--cor-vinho); opacity: 0.85; margin-bottom: 15px; text-align: justify; }
 .item-experiencia, .item-educacao { margin-bottom: 20px; }
-.item-experiencia h4, .item-educacao h4 { font-size: 1.1rem; font-weight: 500; margin-bottom: 5px; color: var(--cor-texto-principal); }
-.periodo { font-size: 0.9rem; color: var(--cor-vinho-fonte); font-weight: 500; display: block; margin-bottom: 10px; }
+.item-experiencia h4, .item-educacao h4 { font-size: 1.1rem; font-weight: 500; margin-bottom: 5px; color: var(--cor-vinho); }
+.periodo { font-size: 0.9rem; color: var(--cor-vinho); opacity: 0.7; font-weight: 500; display: block; margin-bottom: 10px; }
 .lista-certificados { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.lista-certificados li { font-size: 0.95rem; color: var(--cor-texto-secundario); padding-left: 15px; position: relative; }
-.lista-certificados li::before { content: "•"; color: var(--cor-vinho-fonte); position: absolute; left: 0; font-weight: bold; }
+.lista-certificados li { font-size: 0.95rem; color: var(--cor-vinho); opacity: 0.85; padding-left: 15px; position: relative; }
+.lista-certificados li::before { content: "•"; color: var(--cor-vinho); position: absolute; left: 0; font-weight: bold; }
 
 /* =========================================
-   ESTILOS DO PORTFÓLIO
+   PÁGINA PORTFÓLIO
    ========================================= */
 .categoria-projeto { margin-bottom: 60px; }
 
 .titulo-categoria { 
     font-family: 'Inter', sans-serif; 
-    font-size: 1.5rem; /* Diminuído */
-    font-weight: 400; /* Removido o negrito (era 600) */
-    color: var(--cor-vinho-fonte); 
+    font-size: 1.5rem; 
+    font-weight: 400; 
+    color: var(--cor-vinho); 
     margin-bottom: 25px; 
     border-bottom: 1px solid var(--cor-borda); 
     padding-bottom: 10px; 
 }
 
 .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; align-items: start; }
-.projeto-card { border-radius: 12px; overflow: hidden; background-color: #f5ebeb; display: flex; cursor: zoom-in; }
+.projeto-card { border-radius: 12px; overflow: hidden; background-color: rgba(109, 22, 55, 0.05); display: flex; cursor: zoom-in; }
 .projeto-card img { width: 100%; height: auto; display: block; object-fit: cover; transition: transform 0.5s ease; }
 .projeto-card:hover img { transform: scale(1.03); }
 
 /* Lightbox */
-.lightbox { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); justify-content: center; align-items: center; cursor: zoom-out; }
+.lightbox { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(239, 233, 218, 0.95); justify-content: center; align-items: center; cursor: zoom-out; }
 .lightbox.ativo { display: flex; }
-.lightbox-img { max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 8px; box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); animation: zoomIn 0.3s ease; }
-.fechar-lightbox { position: absolute; top: 20px; right: 40px; color: #fff; font-size: 40px; font-weight: 300; cursor: pointer; transition: color 0.3s; }
-.fechar-lightbox:hover { color: var(--cor-vinho-fonte); }
+.lightbox-img { max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 8px; box-shadow: 0 20px 50px rgba(109, 22, 55, 0.3); animation: zoomIn 0.3s ease; }
+.fechar-lightbox { position: absolute; top: 20px; right: 40px; color: var(--cor-vinho); font-size: 40px; font-weight: 300; cursor: pointer; transition: opacity 0.3s; }
+.fechar-lightbox:hover { opacity: 0.6; }
 @keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* =========================================
+   ESTILOS DOS BOTÕES DE FILTRO (PORTFÓLIO)
+   ========================================= */
+.filtros-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 50px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.filtro-btn {
+    background-color: transparent;
+    border: 1px solid var(--cor-vinho);
+    color: var(--cor-vinho);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filtro-btn:hover {
+    background-color: rgba(109, 22, 55, 0.1);
+}
+
+.filtro-btn.ativo {
+    background-color: var(--cor-vinho);
+    color: var(--cor-fundo);
+}
+
+.categoria-projeto.oculto {
+    display: none;
+}
+
+
+/* =========================================
+   ANIMAÇÃO DE TRANSIÇÃO (FADE-IN) ENTRE PÁGINAS
+   ========================================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.site-wrapper {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* =========================================
+   BOTÃO VOLTAR AO TOPO FLUTUANTE
+   ========================================= */
+#btn-voltar-ao-topo {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--cor-vinho);
+    color: var(--cor-fundo);
+    border: 1px solid rgba(239, 233, 218, 0.3);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 20px rgba(109, 22, 55, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+/* Estado visível do botão */
+#btn-voltar-ao-topo.visivel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#btn-voltar-ao-topo:hover {
+    background-color: var(--cor-vinho-hover);
+    transform: translateY(-3px);
+}
+
+/* =========================================
+   ESTILOS DA ASSINATURA NA HOME
+   ========================================= */
+.assinatura-container {
+    max-width: 380px;
+    margin-bottom: 15px;
+    margin-left: 0;       /* Garante que não há margem à esquerda */
+    margin-right: auto;   /* Empurra perfeitamente para a esquerda */
+}
+
+.img-assinatura {
+    width: 100%;
+    height: auto;
+    display: block;
+}
 
 /* =========================================
    RESPONSIVIDADE

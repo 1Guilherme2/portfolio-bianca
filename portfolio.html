@@ -24,11 +24,21 @@
     </header>
 
     <div class="site-wrapper">
-        <section class="hero-title border-bottom">
+        <section class="hero-title">
             <h1>PORTFÓLIO</h1>
         </section>
 
-        <section class="categoria-projeto">
+        <!-- Botões de Filtro -->
+        <div class="filtros-container">
+            <button class="filtro-btn ativo" data-filtro="todos">Todos</button>
+            <button class="filtro-btn" data-filtro="branding">Branding & Design</button>
+            <button class="filtro-btn" data-filtro="ilustracao">Ilustração</button>
+            <button class="filtro-btn" data-filtro="fotografia">Fotografia</button>
+            <button class="filtro-btn" data-filtro="outros">Outros</button>
+        </div>
+
+        <!-- Baby Chef -->
+        <section class="categoria-projeto" data-categoria="branding">
             <h2 class="titulo-categoria">Baby Chef</h2>
             <div class="portfolio-grid">
                 <div class="projeto-card"><img class="abrir-lightbox" src="Fotos portfolio/baby chefe/Portfolio bs out 26-7.jpg" alt="Baby Chef"></div>
@@ -37,7 +47,8 @@
             </div>
         </section>
 
-        <section class="categoria-projeto">
+        <!-- Cultura Gótica -->
+        <section class="categoria-projeto" data-categoria="ilustracao">
             <h2 class="titulo-categoria">Cultura Gótica</h2>
             <div class="portfolio-grid">
                 <div class="projeto-card"><img class="abrir-lightbox" src="Fotos portfolio/cultura gotica/Portfolio bs out 26-14.jpg" alt="Cultura Gótica"></div>
@@ -49,7 +60,8 @@
             </div>
         </section>
 
-        <section class="categoria-projeto">
+        <!-- Eclipse -->
+        <section class="categoria-projeto" data-categoria="ilustracao">
             <h2 class="titulo-categoria">Eclipse</h2>
             <div class="portfolio-grid">
                 <div class="projeto-card"><img class="abrir-lightbox" src="Fotos portfolio/eclipse/Portfolio bs out 26-10.jpg" alt="Eclipse"></div>
@@ -57,7 +69,8 @@
             </div>
         </section>
 
-        <section class="categoria-projeto">
+        <!-- Fontes -->
+        <section class="categoria-projeto" data-categoria="branding">
             <h2 class="titulo-categoria">Fontes</h2>
             <div class="portfolio-grid">
                 <div class="projeto-card"><img class="abrir-lightbox" src="Fotos portfolio/fontes/Portfolio bs out 26-1.jpg" alt="Fontes"></div>
@@ -68,7 +81,8 @@
             </div>
         </section>
 
-        <section class="categoria-projeto">
+        <!-- Giftx -->
+        <section class="categoria-projeto" data-categoria="fotografia">
             <h2 class="titulo-categoria">Giftx</h2>
             <div class="portfolio-grid">
                 <div class="projeto-card"><img class="abrir-lightbox" src="Fotos portfolio/giftx/Portfolio bs out 26-23.jpg" alt="Giftx"></div>
@@ -83,7 +97,8 @@
             </div>
         </section>
 
-        <section class="categoria-projeto">
+        <!-- Marcas -->
+        <section class="categoria-projeto" data-categoria="branding">
             <h2 class="titulo-categoria">Marcas</h2>
             <div class="portfolio-grid">
                 <div class="projeto-card"><img class="abrir-lightbox" src="Fotos portfolio/Marcas/Portfolio bs out 26-20.jpg" alt="Marcas"></div>
@@ -93,7 +108,8 @@
             </div>
         </section>
 
-        <section class="categoria-projeto">
+        <!-- Placa de Sinais -->
+        <section class="categoria-projeto" data-categoria="branding">
             <h2 class="titulo-categoria">Placa de Sinais</h2>
             <div class="portfolio-grid">
                 <div class="projeto-card"><img class="abrir-lightbox" src="Fotos portfolio/placa de sinais/Portfolio bs out 26-25.jpg" alt="Placa de Sinais"></div>
@@ -101,7 +117,8 @@
             </div>
         </section>
 
-        <section class="categoria-projeto">
+        <!-- Praça Jamaiquinha -->
+        <section class="categoria-projeto" data-categoria="outros">
             <h2 class="titulo-categoria">Praça Jamaiquinha</h2>
             <div class="portfolio-grid">
                 <div class="projeto-card"><img class="abrir-lightbox" src="Fotos portfolio/praça jamaiquinha/Portfolio bs out 26-5.jpg" alt="Praça Jamaiquinha"></div>
@@ -109,7 +126,8 @@
             </div>
         </section>
 
-        <section class="categoria-projeto">
+        <!-- Outros -->
+        <section class="categoria-projeto" data-categoria="outros">
             <h2 class="titulo-categoria">Outros</h2>
             <div class="portfolio-grid">
                 <div class="projeto-card"><img class="abrir-lightbox" src="Fotos portfolio/outros/Portfolio bs out 26-13.jpg" alt="Outros"></div>
@@ -121,6 +139,7 @@
         </section>
     </div>
 
+    <!-- Lightbox -->
     <div id="lightbox" class="lightbox">
         <span class="fechar-lightbox">&times;</span>
         <img class="lightbox-img" id="img-lightbox" src="" alt="Imagem expandida">
